@@ -2,7 +2,7 @@ const {Command} = require('commander');
 const program = new Command();
 
 program
-    .name('cli-runner')
+    .name('mpdb')
     .description('A simple CLI runner for NOQSL databases')
     .version('0.0.1')
 
@@ -11,28 +11,28 @@ program
     .command('show')
     .description('List all databases')
     .action(() => {
-        console.log('List all databases')
+        console.log('Listed all databases✅')
     })
 
 program
     .command('use <db>')
     .description('Use a database')
     .action((db) => {
-        console.log(`Use database ${db}`)
+        console.log(`Using database ${db}✅`)
     })
 
 program
     .command('create <db>')
     .description('Create a new database')
     .action((db) => {
-        console.log(`Create database ${db}`)
+        console.log(`Creating database ${db}✅`)
     })
 
 program
     .command('drop <db>')
     .description('Drop a database')
     .action((db) => {
-        console.log(`Drop database ${db}`)
+        console.log(`Dropping database ${db}✅`)
     })
 
 program
@@ -42,7 +42,7 @@ program
     .option('--data <JSON_string>', 'Data to insert')
     .action((options) => {
         const { collection, data } = options;
-        console.log(`Insert data into collection ${collection}: ${data}`);
+        console.log(`Inserting data into collection ${collection}: ${data}✅`);
     });
 
 program
@@ -55,7 +55,7 @@ program
     .option('--limit <number>', 'Limit number of results')
     .action((options) => {
         const { collection, filter, sort, page, limit } = options;
-        console.log(`Querying collection ${collection} with filter ${filter}, sort ${sort}, page ${page}, limit ${limit}`);
+        console.log(`Querying collection ${collection} with filter ${filter}, sort ${sort}, page ${page}, limit ${limit}✅`);
     });
 
 program
@@ -66,7 +66,7 @@ program
     .option('--data <JSON_string>', 'Filter criteria')
     .action((options) => {
         const { collection, id, data } = options;
-        console.log(`Update data in collection ${collection} with id ${id}: ${data}`);
+        console.log(`Updating data in collection ${collection} with id ${id}: ${data}✅`);
     });
 
 program
@@ -76,7 +76,7 @@ program
     .option('--id <document_id>', 'Id to delete')
     .action((options) => {
         const { collection, id } = options;
-        console.log(`Delete data from collection ${collection} with id ${id}`);
+        console.log(`Deleting data from collection ${collection} with id ${id}✅`);
     });
 
 
