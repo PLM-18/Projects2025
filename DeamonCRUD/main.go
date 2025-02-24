@@ -1,24 +1,23 @@
 package main
 
-import{
-	"fmt",
-	"log",
-	"os",
-	"net/http",
+import (
+	"bytes"
 	"encoding/json"
-}
+	"fmt"
+	"net/http"
+)
 
-type Address struct{
+type Address struct {
 	Street string `json:"street"`
-	City string `json:"city"`
-	Zip string `json:"zip"`
+	City   string `json:"city"`
+	Zip    string `json:"zip"`
 }
 
-type User struct{
-	ID string `json:"_id"`
-	Name string `json:"name"`
-	Age int `json:"age"`
-	Email string `json:"email"`
+type User struct {
+	ID      string  `json:"_id"`
+	Name    string  `json:"name"`
+	Age     int     `json:"age"`
+	Email   string  `json:"email"`
 	Address Address `json:"address"`
 }
 
@@ -43,6 +42,6 @@ func StoreData(url string, user User) error {
 	return nil
 }
 
-func main(){
+func main() {
 	fmt.Println("Lets get started shall we!")
 }
