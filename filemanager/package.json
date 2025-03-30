@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
+    "cross-spawn": "^7.0.6",
+    "postcss": "^8.5.3",
     "vue": "^3.2.13"
   },
   "devDependencies": {
