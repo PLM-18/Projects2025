@@ -1,58 +1,71 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
-  </div>
-</template>
+    <div class="container">
+        <h1>File Manager</h1>
+        
+        <div class="tabs">
+            <div class="tab active" data-tab="upload">Upload</div>
+            <div class="tab" data-tab="list">List Files</div>
+        </div>
+        
+        <div class="tab-content active" id="upload">
+            <div class="upload-area">
+                <h2>Upload File</h2>
+                <div class="drop-area" id="dropArea">
+                    <p>Drag & drop files here</p>
+                    <p>- OR -</p>
+                    <div class="file-input-container">
+                        <button class="btn">Choose File</button>
+                        <input type="file" class="file-input" id="fileInput">
+                    </div>
+                    <p class="file-info" id="fileInfo"></p>
+                </div>
+                
+                <h2>Or paste text content</h2>
+                <textarea class="text-area" id="textContent" placeholder="Paste your text here..."></textarea>
+                
+                <div>
+                    <label for="fileName">File Name:</label>
+                    <input type="text" id="fileName" placeholder="Enter file name">
+                </div>
+                
+                <button class="btn" id="uploadBtn">Upload</button>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="list">
+            <h2>Uploaded Files</h2>
+            <table class="file-list">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Size</th>
+                        <th>Upload Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="fileListBody">
+                    <!-- Files will be added here dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div id="viewModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modalFileName"></h2>
+            <pre id="fileContent"></pre>
+        </div>
+    </div>
 
-<script>
-export default {
-  name: 'HomePage',
-  props: {
-    msg: String
+  </template>
+  
+  <script>
+  export default {
+    name: 'HomePage'
   }
-}
-</script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+  </script>
+  
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+    @import "../styles/Home.css";
 </style>
