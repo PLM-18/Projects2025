@@ -64,7 +64,7 @@
   <script>
   export default {
     name: 'HomePage',
-    data() {
+    mounted() {
         const tabs = document.querySelectorAll('.tab');
         const tabContents = document.querySelectorAll('.tab-content');
         const dropArea = document.getElementById('dropArea');
@@ -94,29 +94,24 @@
             }
         }
         
-        // Tab switching
         tabs.forEach(tab => {
             tab.addEventListener('click', function() {
                 const tabId = this.getAttribute('data-tab');
                 
-                // Remove active class from all tabs and contents
                 tabs.forEach(t => t.classList.remove('active'));
                 tabContents.forEach(c => c.classList.remove('active'));
                 
-                // Add active class to clicked tab and corresponding content
                 this.classList.add('active');
                 document.getElementById(tabId).classList.add('active');
             });
         });
         
-        // File input handling
         fileInput.addEventListener('change', function() {
             if (this.files.length) {
                 const file = this.files[0];
                 fileInfo.textContent = `Selected: ${file.name} (${formatFileSize(file.size)})`;
                 fileName.value = file.name;
                 
-                // Read file content for text files
                 if (file.type.startsWith('text/') || file.type === 'application/json') {
                     const reader = new FileReader();
                     reader.onload = function(event) {
@@ -329,7 +324,6 @@
             return date.toLocaleString();
         }
         
-        // Initial render
         renderFileList();
     }
 }
