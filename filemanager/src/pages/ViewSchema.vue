@@ -3,12 +3,12 @@
 </template>
 <script>
 export default {
-    name: "Schame",
+    name: "SchemaView",
     mounted(){
 
     }
 }
 </script>
-<style scope>
+<style scoped>
     @import "../styles/Schema.css";
 </style>

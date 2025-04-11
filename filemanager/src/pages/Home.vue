@@ -276,7 +276,7 @@
         // View file
         function viewFile(fileId) {
             const file = files.find(f => f.id === fileId);
-            
+
             if (file) {
                 modalFileName.textContent = file.name;
                 fileContent.textContent = file.content;
