@@ -1,0 +1,29 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="players">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="player" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="name" type="xs:string"/>
+                            <xs:element name="age" type="xs:integer"/>
+                            <xs:element name="position" type="xs:string"/>
+                            <xs:element name="team" type="xs:string"/>
+                            <xs:element name="stats">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="games" type="xs:integer"/>
+                                        <xs:element name="goals" type="xs:integer"/>
+                                        <xs:element name="assists" type="xs:integer"/>
+                                        <xs:element name="yellow_cards" type="xs:integer"/>
+                                        <xs:element name="red_cards" type="xs:integer"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
